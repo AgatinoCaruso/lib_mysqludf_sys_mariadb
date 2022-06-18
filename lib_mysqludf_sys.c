@@ -19,23 +19,23 @@
 	License along with this library; if not, write to the Free Software
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
-#if defined(_WIN32) || defined(_WIN64) || defined(__WIN32__) || defined(WIN32)
-#define DLLEXP __declspec(dllexport) 
-#else
+/* #if defined(_WIN32) || defined(_WIN64) || defined(__WIN32__) || defined(WIN32) */
+/* #define DLLEXP __declspec(dllexport)  */
+/* #else */
 #define DLLEXP
-#endif
+/* #endif */
 
 #ifdef STANDARD
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
-#ifdef __WIN__
-typedef unsigned __int64 ulonglong;
-typedef __int64 longlong;
-#else
+/* #ifdef __WIN__ */
+/* typedef unsigned __int64 ulonglong; */
+/* typedef __int64 longlong; */
+/* #else */
 typedef unsigned long long ulonglong;
 typedef long long longlong;
-#endif /*__WIN__*/
+/* #endif /\*__WIN__*\/ */
 #else
 #include <my_global.h>
 #include <my_sys.h>
@@ -54,11 +54,11 @@ extern "C" {
 
 #define LIBVERSION "lib_mysqludf_sys version 0.0.3"
 
-#ifdef __WIN__
-#define SETENV(name,value)		SetEnvironmentVariable(name,value);
-#else
+/* #ifdef __WIN__ */
+/* #define SETENV(name,value)		SetEnvironmentVariable(name,value); */
+/* #else */
 #define SETENV(name,value)		setenv(name,value,1);		
-#endif
+/* #endif */
 
 DLLEXP 
 my_bool lib_mysqludf_sys_info_init(

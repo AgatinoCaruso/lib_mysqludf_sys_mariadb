@@ -1,0 +1,29 @@
+Experimental - It Just Works™
+
+* lib_mysqludf_sys - MariaDB
+Modified version of [[https://github.com/mysqludf/lib_mysqludf_sys][lib_mysqludf_sys]] for MariaDB.
+
+You have a precompiled *lib_mysqludf_sys.so* and *lib_mysqludf_sys.so.hex* ready
+to use.
+
+** CIY (Compile-It Yourself)
+Prerequisites: 
+#+begin_src bash
+sudo apt install default-libmysqlclient-dev mariadb-server libmariadbd-dev
+#+end_src
+
+Compile:
+#+begin_src bash
+sudo make
+#+end_src
+
+Get hexdump:
+#+begin_src bash
+xxd -p lib_mysqludf_sys.so | tr -d '\n' > lib_mysqludf_sys.so.hex
+#+end_src
+
+** Explainers
+ * Windows support is commented out to make the project compile. Error "attempt
+   to use poisoned __WIN__".
+ * The install does not work at the moment - I only want it to generate a shared
+   object.
